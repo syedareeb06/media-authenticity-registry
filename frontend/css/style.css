@@ -287,6 +287,7 @@ input[type="file"] { font-size: 0.86rem; max-width: 100%; }
   background: var(--surface); color: var(--text); border: 1px solid var(--border); box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
   border-left: 4px solid var(--accent); animation: toast-in 0.2s ease-out;
 }
+#toasts, #toasts .toast { pointer-events: none; } /* toasts never block clicks on the page below */
 .toast-success { border-left-color: var(--ok); }
 .toast-error { border-left-color: var(--bad); }
 .toast-out { opacity: 0; transform: translateY(6px); transition: all 0.25s; }
