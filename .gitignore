@@ -1,0 +1,12 @@
+# Dependencies and build output
+node_modules/
+blockchain/artifacts/
+blockchain/cache/
+coverage/
+
+# Environment / editor / OS
+.env
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

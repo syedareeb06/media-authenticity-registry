@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.png binary
+frontend/vendor/** -diff linguist-vendored
+frontend/js/contract-artifact.js linguist-generated
