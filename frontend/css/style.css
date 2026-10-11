@@ -14,6 +14,7 @@
   --warn-soft: #fdf2e1;
   --bad: #b42318;
   --bad-soft: #fdecea;
+  --bad-ink: #ffffff;
   --info-soft: #eaf1fe;
   --shadow: 0 1px 2px rgba(16, 24, 40, 0.05), 0 2px 8px rgba(16, 24, 40, 0.05);
   --radius: 12px;
@@ -35,6 +36,7 @@
     --warn-soft: #33270f;
     --bad: #f87171;
     --bad-soft: #3a1717;
+    --bad-ink: #1f0a0a;
     --info-soft: #172338;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     color-scheme: dark;
@@ -53,6 +55,7 @@
   --warn-soft: #33270f;
   --bad: #f87171;
   --bad-soft: #3a1717;
+  --bad-ink: #1f0a0a;
   --info-soft: #172338;
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   color-scheme: dark;
@@ -179,7 +182,7 @@ main { padding: 24px; max-width: 1240px; width: 100%; }
 .btn-secondary:hover { background: var(--surface-2); filter: none; }
 .btn-ghost { background: transparent; color: var(--text); }
 .btn-ghost:hover { background: var(--surface-2); filter: none; }
-.btn-danger { background: var(--bad); color: #fff; }
+.btn-danger { background: var(--bad); color: var(--bad-ink); }
 .btn-sm { padding: 5px 10px; font-size: 0.82rem; }
 .btn svg { width: 16px; height: 16px; }
 
@@ -237,7 +240,7 @@ input[type="file"] { font-size: 0.86rem; max-width: 100%; }
 .checklist li.ok .mark { background: var(--ok-soft); color: var(--ok); }
 .checklist li.bad .mark { background: var(--bad-soft); color: var(--bad); }
 .checklist li.run .mark { background: var(--info-soft); color: var(--accent); }
-.checklist .detail { display: block; color: var(--muted); font-size: 0.8rem; word-break: break-all; }
+.checklist .detail { display: block; color: var(--muted); font-size: 0.8rem; overflow-wrap: anywhere; }
 
 /* ---------- block explorer ---------- */
 .explorer { align-items: start; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }

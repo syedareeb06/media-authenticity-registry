@@ -12,6 +12,7 @@
     if (type === "address") return Chain.label(v);
     if (typeof v === "bigint") return v.toString();
     if (typeof v === "string" && v.startsWith("0x") && v.length > 20) return UI.short(v);
+    if (typeof v === "string" && v.length > 80) return v.slice(0, 77) + "…"; // e.g. public keys
     if (typeof v === "boolean") return v ? "yes" : "no";
     if (Array.isArray(v)) return `[${v.length} items]`;
     return String(v);
