@@ -105,7 +105,7 @@
     $("#reset-btn").addEventListener("click", () => {
       const msg =
         Chain.mode === "browser"
-          ? "Reset the demo? All papers, transactions and blocks in the in-browser chain will be deleted."
+          ? "Reset the demo? All demo data, transactions and blocks in the in-browser chain will be deleted."
           : "Deploy a fresh contract on the local Hardhat node? The current contract's data will no longer be shown.";
       if (confirm(msg)) action($("#reset-btn"), () => Chain.reset());
     });
@@ -146,7 +146,7 @@
 
   async function updateChainInfo() {
     try {
-      const n = await Chain.provider.getBlockNumber();
+      const n = await Chain.blockNumber();
       $("#chain-dot").className = "dot dot-ok";
       $("#chain-text").innerHTML = `${Chain.mode === "browser" ? "In-browser chain" : "Local Hardhat"} · block #${n} · <span id="chain-clock" class="mono">${UI.fmtClock(Chain.now())}</span>`;
       $("#foot-info").innerHTML = `Contract<br><code title="${UI.esc(Chain.address)}">${UI.esc(UI.short(Chain.address, 4))}</code><br>Chain ID ${Chain.chainId}`;

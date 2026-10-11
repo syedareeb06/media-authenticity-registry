@@ -56,7 +56,7 @@
     const formatEvent = opts.formatEvent || ((e) => genericArgs(e.fragment, e.args));
     el.innerHTML = `<div class="card"><p class="muted">Reading the blockchain…</p></div>`;
 
-    const latest = await Chain.provider.getBlockNumber();
+    const latest = await Chain.blockNumber();
     const from = Math.max(0, latest - max + 1);
     const blocks = [];
     for (let n = latest; n >= from; n--) blocks.push(await getBlock(n));

@@ -264,6 +264,9 @@
     return e?.shortMessage || e?.message || String(e);
   }
 
+  /** Latest block number, read fresh from the node (ethers caches getBlockNumber for a short time). */
+  const blockNumber = async () => Number(await state.provider.send("eth_blockNumber", []));
+
   // ---------- time ----------
   const now = () => Math.floor(Date.now() / 1000 + state.offset);
 
@@ -339,6 +342,7 @@
     send,
     explain,
     now,
+    blockNumber,
     fastForward,
     reset,
     store,
