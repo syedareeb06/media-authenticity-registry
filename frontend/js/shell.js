@@ -56,7 +56,11 @@
                  </div>`
               : ""
           }
-          <button type="button" class="btn btn-ghost btn-sm" id="theme-btn" aria-label="Toggle dark mode">${icon("moon")}</button>
+          <label class="theme-switch" title="Switch between light and dark theme">
+            <input type="checkbox" id="theme-toggle" role="switch" aria-label="Dark theme" />
+            <span class="theme-track" aria-hidden="true"><span class="theme-thumb" id="theme-thumb"></span></span>
+            <span class="theme-label" id="theme-label">Light</span>
+          </label>
         </div>
       </header>
       <div class="shell">
@@ -95,7 +99,9 @@
         UI.toast(`Blockchain time moved forward ${UI.fmtDuration(Number(btn.dataset.ff))}`, "success", 2500);
       }))
     );
-    $("#theme-btn").addEventListener("click", toggleTheme);
+    $("#theme-toggle").addEventListener("change", (e) => setTheme(e.target.checked ? "dark" : "light"));
+    // Follow the operating system's theme until the user picks one.
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
     $("#reset-btn").addEventListener("click", () => {
       const msg =
         Chain.mode === "browser"
@@ -118,13 +124,17 @@
       t = localStorage.getItem(themeKey());
     } catch {}
     UI.setDocTheme(t);
-    const btn = $("#theme-btn");
-    if (btn) btn.innerHTML = currentTheme() === "dark" ? icon("sun") : icon("moon");
+    const dark = currentTheme() === "dark";
+    const toggle = $("#theme-toggle");
+    if (toggle) toggle.checked = dark;
+    const thumb = $("#theme-thumb");
+    if (thumb) thumb.innerHTML = icon(dark ? "moon" : "sun");
+    const label = $("#theme-label");
+    if (label) label.textContent = dark ? "Dark" : "Light";
   }
-  function toggleTheme() {
-    const next = currentTheme() === "dark" ? "light" : "dark";
+  function setTheme(theme) {
     try {
-      localStorage.setItem(themeKey(), next);
+      localStorage.setItem(themeKey(), theme);
     } catch {}
     applyTheme();
   }

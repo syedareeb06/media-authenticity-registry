@@ -34,6 +34,7 @@ Edited or fake images spread online as if they were real. Today:
 - **Press Council**: admit publishers and fact-checkers, suspend or re-activate them, see open disputes
 - **Blockchain Explorer**: hash-linked blocks, decoded transactions and the full audit log
 - Two blockchains: an **in-browser Ethereum chain** (zero setup) or a **local Hardhat node**
+- **Light / dark theme switch** in the top bar (follows your system theme until you choose, then remembers it)
 
 | Publisher registers a photo | Verify: edited copy found |
 |---|---|
